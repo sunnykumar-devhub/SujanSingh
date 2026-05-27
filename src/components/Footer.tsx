@@ -1,7 +1,9 @@
 'use client';
 
+import Link from 'next/link';
+
 const SocialIcon = ({ name }: { name: string }) => (
-  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
     {name === 'linkedin' && <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />}
     {name === 'twitter' && <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />}
     {name === 'facebook' && <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />}
@@ -12,51 +14,70 @@ const SocialIcon = ({ name }: { name: string }) => (
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#1a2332] text-gray-300 pt-20 pb-10">
+    <footer className="bg-slate-950 text-slate-300 pt-24 pb-12 font-sans border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="lg:col-span-2">
-            <h3 className="text-white text-lg font-bold mb-6 tracking-wide uppercase text-sm">Sound Finance Solutions For Successful People</h3>
-            <p className="mb-6 leading-relaxed text-sm text-gray-400 max-w-md">
-              I, <strong className="text-gray-200">Sujan Singh Investment Advisory</strong>, specialize in providing comprehensive financial solutions to help you achieve long-term success. My advisory services are designed to grow, protect, and manage your wealth with personalized strategies tailored for every stage of life. Trust me to guide you through the complexities of finance, ensuring your future remains secure.
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-20">
+          
+          {/* Corporate Manifesto Column */}
+          <div className="md:col-span-5 lg:col-span-6 pr-0 lg:pr-12">
+            <h3 className="text-blue-400 font-bold mb-6 tracking-[0.15em] uppercase text-xs">
+              Institutional Fiduciary Architecture
+            </h3>
+            <p className="font-serif text-2xl text-white mb-6 leading-snug">
+              &quot;Sujan Singh Investment Advisory&quot;
+            </p>
+            <p className="leading-relaxed text-sm text-slate-400">
+              We execute comprehensive financial frameworks to protect, compound, and transition generational wealth. As a SEBI-Registered Investment Adviser, we act as strict fiduciaries—operating completely devoid of commissions to ensure our mathematical modeling always serves your best interests.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-white text-lg font-bold mb-6 tracking-wide uppercase text-sm">Quick Links</h3>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#home" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> Home</a></li>
-              <li><a href="#about" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> About me</a></li>
-              <li><a href="#services" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> Services</a></li>
-              <li><a href="#faqs" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> Faqs</a></li>
-              <li><a href="#disclosures" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> Sebi disclosures</a></li>
-              <li><a href="#contact" className="hover:text-accent-blue hover:underline transition-colors flex items-center"><span className="text-accent-blue mr-2">›</span> Contact me</a></li>
+          {/* Site Index Column */}
+          <div className="md:col-span-3 lg:col-span-3">
+            <h3 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Registry</h3>
+            <ul className="space-y-4 text-sm font-semibold">
+              <li><Link href="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
+              <li><Link href="/about" className="hover:text-blue-400 transition-colors">Firm Profile</Link></li>
+              <li><Link href="/services" className="hover:text-blue-400 transition-colors">Advisory Frameworks</Link></li>
+              <li><Link href="/faqs" className="hover:text-blue-400 transition-colors">Knowledge Base</Link></li>
+              <li><Link href="/disclosures" className="hover:text-blue-400 transition-colors">Statutory Disclosures</Link></li>
+              <li><Link href="/contact" className="hover:text-blue-400 transition-colors">Initiate Contact</Link></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-white text-lg font-bold mb-6 tracking-wide uppercase text-sm">Contact Information</h3>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li><strong className="text-gray-200">Phone:</strong> +91 98XXX XXXXX</li>
-              <li><strong className="text-gray-200">Email:</strong> sujansingh20@gmail.com</li>
-              <li><strong className="text-gray-200">Office Address:</strong> 7G, 7th Floor, Devika Tower, Nehru Place, Delhi- 110019</li>
+          {/* Contact Details Column */}
+          <div className="md:col-span-4 lg:col-span-3">
+            <h3 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Headquarters</h3>
+            <ul className="space-y-5 text-sm text-slate-400">
+              <li>
+                <strong className="text-white block mb-1 text-xs uppercase tracking-widest">Phone</strong>
+                <a href="tel:+918802108844" className="hover:text-blue-400 transition-colors">+91 88021 08844</a>
+              </li>
+              <li>
+                <strong className="text-white block mb-1 text-xs uppercase tracking-widest">Digital Dispatch</strong>
+                <a href="mailto:sujansingh20@gmail.com" className="hover:text-blue-400 transition-colors break-all">sujansingh20@gmail.com</a>
+              </li>
+              <li>
+                <strong className="text-white block mb-1 text-xs uppercase tracking-widest">Location</strong>
+                713, 7th Floor, Devika Tower,<br />Nehru Place, New Delhi - 110019
+              </li>
             </ul>
             
-            <div className="mt-8">
-              <h4 className="text-white font-medium mb-4 text-sm">Follow me:</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><SocialIcon name="linkedin" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><SocialIcon name="twitter" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><SocialIcon name="facebook" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><SocialIcon name="instagram" /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors"><SocialIcon name="youtube" /></a>
+            <div className="mt-8 pt-8 border-t border-slate-800">
+              <h4 className="text-white font-bold mb-5 tracking-widest uppercase text-xs">Syndicate Links</h4>
+              <div className="flex space-x-5">
+                <a href="#" className="text-slate-500 hover:text-white transition-colors" aria-label="LinkedIn"><SocialIcon name="linkedin" /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-colors" aria-label="Twitter"><SocialIcon name="twitter" /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-colors" aria-label="Facebook"><SocialIcon name="facebook" /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-colors" aria-label="Instagram"><SocialIcon name="instagram" /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-colors" aria-label="YouTube"><SocialIcon name="youtube" /></a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700/50 pt-8 mt-8 text-center text-xs text-gray-500">
-          <p>Designed and developed by Castebracket Solutions Pvt Ltd</p>
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500 uppercase tracking-widest">
+          <p>© {new Date().getFullYear()} Sujan Singh Investment Advisory</p>
+          <p>Engineered by Castebracket Solutions</p>
         </div>
       </div>
     </footer>

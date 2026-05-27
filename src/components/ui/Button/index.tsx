@@ -11,15 +11,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-blue-600 border-blue-600 !text-white shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:bg-blue-700 hover:border-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] focus:ring-blue-500',
+          'bg-blue-600 border-blue-600 text-white shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:bg-blue-700 hover:border-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] focus:ring-blue-500',
         secondary:
-          'bg-slate-900 border-slate-900 !text-white shadow-[0_4px_16px_rgba(15,23,42,0.15)] hover:bg-slate-800 hover:border-slate-800 focus:ring-slate-500',
+          'bg-slate-900 border-slate-900 text-white shadow-[0_4px_16px_rgba(15,23,42,0.15)] hover:bg-slate-800 hover:border-slate-800 focus:ring-slate-500',
         outline:
-          'bg-transparent border-slate-300 !text-slate-800 hover:bg-slate-100 hover:border-slate-400 focus:ring-blue-500',
+          'bg-transparent border-slate-300 text-slate-800 hover:bg-slate-100 hover:border-slate-400 focus:ring-blue-500',
         ghost:
-          'bg-transparent border-transparent !text-slate-600 hover:bg-slate-100 focus:ring-slate-500',
+          'bg-transparent border-transparent text-slate-600 hover:bg-slate-100 focus:ring-slate-500',
         danger:
-          'bg-red-600 border-red-600 !text-white shadow-[0_4px_16px_rgba(220,38,38,0.25)] hover:bg-red-700 hover:border-red-700 focus:ring-red-500',
+          'bg-red-600 border-red-600 text-white shadow-[0_4px_16px_rgba(220,38,38,0.25)] hover:bg-red-700 hover:border-red-700 focus:ring-red-500',
       },
       size: {
         sm: 'px-5 py-2 min-h-[38px]',
