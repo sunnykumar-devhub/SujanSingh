@@ -221,10 +221,10 @@ export default function AboutContainer() {
         <motion.div variants={itemVariants} className="lg:col-span-5 relative group">
           {/* Luxury Accent Backing Plate */}
           <div className="absolute -inset-3 bg-stone-100 rounded-2xl -z-10 border border-stone-200/60 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
-          
+
           <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] border border-stone-200 bg-stone-50">
             <Image
-              src="/images/sujan-hero.jpg"
+              src="/images/sujan-about.jpeg"
               alt="Sujan Singh"
               fill
               priority
@@ -233,7 +233,7 @@ export default function AboutContainer() {
             />
             {/* Premium overlay gradient to bind image beautifully */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-            
+
             {/* Dynamic Watermark Fiduciary Tag */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md px-5 py-4 border border-stone-200 shadow-lg flex justify-between items-center">
               <div>
