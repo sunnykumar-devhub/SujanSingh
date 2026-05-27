@@ -182,7 +182,7 @@ export default function AboutContainer() {
             </div>
           </section>
 
-          {/* ─── SECTION 7: FINAL CTA SECTION ─── */}
+
           <section className="bg-slate-900 py-24 relative overflow-hidden border-t border-slate-800">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(30,58,138,0.15),transparent_50%)]" />
             <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
