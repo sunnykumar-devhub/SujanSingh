@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 const impactItems = [
   'Indian Army',
@@ -51,16 +52,14 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/70 px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl">
+        <Breadcrumb />
         <motion.section
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
           className="rounded-3xl border border-slate-200/60 bg-white/90 p-8"
         >
-          <p className="text-sm text-slate-600">
-            <Link href="/" className="hover:text-blue-700">Home</Link> / <span>About Me</span>
-          </p>
-          <h1 className="mt-4 font-serif text-4xl font-bold text-slate-950 sm:text-5xl">
+          <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl">
             The Fiduciary Standard in Wealth Stewardship
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">

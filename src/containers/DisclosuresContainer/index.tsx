@@ -27,13 +27,13 @@ const scopeItems = [
 export default function DisclosuresContainer() {
   return (
     <section className="min-h-screen bg-slate-50 text-slate-900">
-      <Breadcrumb />
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
       >
+        <Breadcrumb />
         <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-extrabold text-slate-900">
           SEBI RIA Disclosures and Grievance Redressal Data
         </motion.h1>

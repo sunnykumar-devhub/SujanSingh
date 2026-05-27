@@ -14,6 +14,7 @@ import {
   Lock,
   ExternalLink,
 } from 'lucide-react';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 const vectors = [
   {
@@ -114,13 +115,7 @@ export default function ImpostersPage() {
       <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
         
         {/* Navigation Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-8">
-          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
-          <Link href="/disclosures" className="hover:text-blue-600 transition-colors">Disclosures</Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
-          <span className="text-slate-800">Beware of Imposters</span>
-        </nav>
+        <Breadcrumb />
 
         {/* Hero Section */}
         <motion.div 

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Compass, Layers, Scale, Shield, Target, TrendingUp, ArrowRight } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 const pillars = [
   {
@@ -48,16 +49,14 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/70 px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl">
+        <Breadcrumb />
         <motion.section
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
           className="rounded-3xl border border-slate-200/60 bg-white p-8"
         >
-          <p className="text-sm text-slate-600">
-            <Link href="/" className="hover:text-blue-700">Home</Link> / <span>Services</span>
-          </p>
-          <h1 className="mt-4 font-serif text-4xl font-bold text-slate-950 sm:text-5xl">
+          <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl">
             Comprehensive Financial Stewardship Tailored to You
           </h1>
           <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-700">
