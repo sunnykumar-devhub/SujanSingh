@@ -69,9 +69,7 @@ export default function Navbar() {
           {/* Logo Group */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-3 group focus:outline-none">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-[0_4px_20px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform duration-300">
-                <Award className="w-5.5 h-5.5 text-white" />
-              </div>
+
               <div className="flex flex-col text-left">
                 <span className="text-lg font-bold font-serif tracking-tight leading-none text-white transition-colors duration-300 group-hover:text-blue-400">
                   Sujan Singh
