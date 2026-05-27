@@ -11,7 +11,12 @@ export default function Breadcrumb() {
   if (pathname === '/') return null;
 
   // Split path into individual segments
-  const pathSegments = pathname.split('/').filter((segment) => segment !== '');
+  let pathSegments = pathname.split('/').filter((segment) => segment !== '');
+
+  // Custom routing override: complaints page nests under SEBI Disclosures in breadcrumbs
+  if (pathSegments.length === 1 && pathSegments[0] === 'complaints') {
+    pathSegments = ['disclosures', 'complaints'];
+  }
 
   return (
     <nav 
