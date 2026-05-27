@@ -1,8 +1,10 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { ArrowRight, Award, ShieldAlert, TableProperties } from 'lucide-react';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import Button from '@/components/ui/Button';
 
 const sourceRows = [
   ['1', 'Directly from', '0', '0', '0', '0', '0', '0'],
@@ -18,142 +20,218 @@ const monthlyRows = [
 
 const annualRows = [['1', '2026', '0', '0', '0', '0']];
 
-const colors = [
-  { key: 'blue', dot: 'bg-blue-600', accent: 'text-blue-700', ring: 'ring-blue-200', soft: 'bg-blue-50' },
-  { key: 'red', dot: 'bg-red-600', accent: 'text-red-700', ring: 'ring-red-200', soft: 'bg-red-50' },
-  { key: 'green', dot: 'bg-emerald-600', accent: 'text-emerald-700', ring: 'ring-emerald-200', soft: 'bg-emerald-50' },
-  { key: 'pink', dot: 'bg-pink-600', accent: 'text-pink-700', ring: 'ring-pink-200', soft: 'bg-pink-50' },
-  { key: 'purple', dot: 'bg-violet-600', accent: 'text-violet-700', ring: 'ring-violet-200', soft: 'bg-violet-50' },
-  { key: 'skyblue', dot: 'bg-sky-600', accent: 'text-sky-700', ring: 'ring-sky-200', soft: 'bg-sky-50' },
-] as const;
-
 export default function ComplaintsPage() {
-  const router = useRouter();
-  const [layout, setLayout] = useState<'fullwidth' | 'boxed'>('fullwidth');
-  const [color, setColor] = useState<(typeof colors)[number]['key']>('blue');
-
-  const theme = useMemo(() => colors.find((c) => c.key === color) ?? colors[0], [color]);
-
   return (
-    <section className="min-h-screen bg-slate-50 text-slate-900">
-      <div className={`${layout === 'fullwidth' ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8 py-14`}>
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
-          <p className="text-sm text-slate-600">
-            <Link href="/" className="hover:underline">Home</Link>
-            <span className="mx-1">/</span>
-            <span>Complaints</span>
-          </p>
-          <h1 className={`mt-3 text-4xl md:text-5xl font-extrabold ${theme.accent}`}>Complaints</h1>
-          <p className="mt-2 text-slate-700 font-medium">Data for the month ending - 31.10.2025</p>
+    <div className="min-h-screen bg-slate-50/60 pb-24 pt-28 md:pt-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <Breadcrumb />
 
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="mt-4 inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
-          >
-            Go Back
-          </button>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-xl border border-slate-200 p-4">
-              <p className="text-sm font-semibold text-slate-800">Select Your Style</p>
-              <p className="text-xs text-slate-600 mt-1">Choose your layout</p>
-              <div className="mt-3 flex gap-2">
-                {(['fullwidth', 'boxed'] as const).map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => setLayout(l)}
-                    className={`px-3 py-2 rounded-lg text-sm font-semibold border ${layout === l ? `bg-slate-900 text-white border-slate-900` : 'bg-white text-slate-700 border-slate-200'}`}
-                  >
-                    {l === 'fullwidth' ? 'Fullwidth' : 'Boxed'}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-slate-200 p-4">
-              <p className="text-sm font-semibold text-slate-800">Color scheme</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {colors.map((c) => (
-                  <button
-                    key={c.key}
-                    onClick={() => setColor(c.key)}
-                    className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold ${color === c.key ? `ring-2 ${c.ring} border-slate-300` : 'border-slate-200'}`}
-                  >
-                    <span className={`h-2.5 w-2.5 rounded-full ${c.dot}`} />
-                    {`color-${c.key}`}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 space-y-8">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 overflow-x-auto">
-            <table className="w-full min-w-[980px] text-sm text-left">
-              <thead className={`text-slate-800 ${theme.soft}`}>
-                <tr>
-                  <th className="p-2">Sr. No</th><th className="p-2">Received from</th><th className="p-2">Pending at the end of last Month</th><th className="p-2">Received</th><th className="p-2">Resolved</th><th className="p-2">Total Pending</th><th className="p-2">Pending Complaints &gt; 3 Month</th><th className="p-2">Average Resolution Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sourceRows.map((row) => (
-                  <tr key={row[0]} className="border-t border-slate-200">{row.map((cell, i) => <td key={i} className="p-2">{cell}</td>)}</tr>
-                ))}
-                <tr className={`border-t border-slate-300 font-semibold ${theme.soft}`}>
-                  <td className="p-2" colSpan={2}>Grand Total</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 overflow-x-auto">
-            <h2 className="text-xl font-bold mb-4">Trend of monthly disposal of complaints</h2>
-            <table className="w-full min-w-[760px] text-sm text-left">
-              <thead className={`text-slate-800 ${theme.soft}`}><tr><th className="p-2">Sr. No</th><th className="p-2">Month</th><th className="p-2">Carried forward From Previous Month</th><th className="p-2">Received</th><th className="p-2">Resolved</th><th className="p-2">Pending</th></tr></thead>
-              <tbody>
-                {monthlyRows.map((row) => (<tr key={row[0]} className="border-t border-slate-200">{row.map((cell, i) => <td key={i} className="p-2">{cell}</td>)}</tr>))}
-                <tr className={`border-t border-slate-300 font-semibold ${theme.soft}`}><td className="p-2" colSpan={2}>Grand Total</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 overflow-x-auto">
-            <h2 className="text-xl font-bold mb-4">Trend of annual disposal of complaints</h2>
-            <table className="w-full min-w-[760px] text-sm text-left">
-              <thead className={`text-slate-800 ${theme.soft}`}><tr><th className="p-2">Sr. No</th><th className="p-2">Year</th><th className="p-2">Carried Forward from Previous Year</th><th className="p-2">Received</th><th className="p-2">Resolved</th><th className="p-2">Pending</th></tr></thead>
-              <tbody>
-                {annualRows.map((row) => (<tr key={row[0]} className="border-t border-slate-200">{row.map((cell, i) => <td key={i} className="p-2">{cell}</td>)}</tr>))}
-                <tr className={`border-t border-slate-300 font-semibold ${theme.soft}`}><td className="p-2" colSpan={2}>Grand Total</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2">0</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-          <h3 className={`text-2xl font-bold ${theme.accent}`}>Sound Finance Solutions for Successful People</h3>
-          <p className="mt-3 text-slate-700">
-            At Sujan Singh Investment Advisory, I specialize in providing comprehensive financial solutions to help you achieve long-term success. My advisory services are designed to grow, protect, and manage your wealth with personalized strategies tailored for every stage of life. Trust me to guide you through the complexities of finance, ensuring your future remains secure.
-          </p>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+        {/* Hero Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          className="rounded-3xl border border-slate-200/60 bg-white/90 p-8 shadow-sm"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="font-semibold text-slate-900">Quick Links</p>
-              <ul className="mt-2 space-y-1 text-slate-700">
-                <li><Link href="/">Home</Link></li><li><Link href="/about">About Me</Link></li><li><Link href="/services">Services</Link></li><li><Link href="/faqs">FAQs</Link></li><li><Link href="/disclosures">SEBI Disclosures</Link></li><li><Link href="/contact">Contact Me</Link></li>
-              </ul>
+              <p className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
+                <ShieldAlert className="h-3.5 w-3.5" />
+                Grievance Redressal Mechanism
+              </p>
+              <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl mt-3">
+                Complaints &amp; Grievance Status
+              </h1>
+              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
+                In compliance with SEBI Regulations, we publish the month-on-month status of client grievances and their resolution tracking. Fiduciary accountability remains our absolute standard.
+              </p>
             </div>
-            <div className="md:col-span-2">
-              <p className="font-semibold text-slate-900">Contact Information</p>
-              <p className="mt-2 text-slate-700">Phone: +91 88021 08844</p>
-              <p className="text-slate-700">Email: sujansingh20@gmail.com</p>
-              <p className="text-slate-700">Office Address: 713, 7th Floor, Devika Tower, Nehru Place, Delhi- 110019</p>
-              <p className="mt-2 text-slate-700">Follow me:</p>
+            <div className="shrink-0 bg-slate-50 rounded-2xl border border-slate-200/60 p-4 text-center md:text-right">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Data Ending</span>
+              <span className="text-lg font-black text-slate-900 block mt-1">October 31, 2025</span>
             </div>
           </div>
+        </motion.section>
+
+        {/* Tables Section */}
+        <div className="mt-10 space-y-10">
+          
+          {/* Table 1 */}
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-sm overflow-hidden"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <TableProperties className="h-5 w-5 text-blue-700" />
+              <h2 className="text-xl font-bold text-slate-950">Grievance Status for Current Month</h2>
+            </div>
+            <div className="overflow-x-auto no-scrollbar -mx-6 px-6">
+              <table className="w-full min-w-[980px] text-sm text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50/50 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                    <th className="py-4 px-4 font-bold rounded-l-2xl">Sr. No</th>
+                    <th className="py-4 px-4 font-bold">Received From</th>
+                    <th className="py-4 px-4 font-bold text-center">Pending Last Month</th>
+                    <th className="py-4 px-4 font-bold text-center">Received</th>
+                    <th className="py-4 px-4 font-bold text-center">Resolved</th>
+                    <th className="py-4 px-4 font-bold text-center">Total Pending</th>
+                    <th className="py-4 px-4 font-bold text-center">Pending &gt; 3 Months</th>
+                    <th className="py-4 px-4 font-bold text-center rounded-r-2xl">Avg Resolution Time</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {sourceRows.map((row) => (
+                    <tr key={row[0]} className="hover:bg-slate-50/40 transition-colors">
+                      <td className="py-4 px-4 font-semibold text-slate-400">{row[0]}</td>
+                      <td className="py-4 px-4 font-semibold text-slate-900">{row[1]}</td>
+                      <td className="py-4 px-4 text-center">{row[2]}</td>
+                      <td className="py-4 px-4 text-center">{row[3]}</td>
+                      <td className="py-4 px-4 text-center">{row[4]}</td>
+                      <td className="py-4 px-4 text-center">{row[5]}</td>
+                      <td className="py-4 px-4 text-center">{row[6]}</td>
+                      <td className="py-4 px-4 text-center text-slate-500 font-medium">{row[7]}</td>
+                    </tr>
+                  ))}
+                  <tr className="border-t-2 border-slate-200 bg-slate-50/80 font-bold text-slate-950">
+                    <td className="py-4 px-4 rounded-l-2xl" colSpan={2}>Grand Total</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center rounded-r-2xl">0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </motion.section>
+
+          {/* Table 2 */}
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-sm overflow-hidden"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <TableProperties className="h-5 w-5 text-blue-700" />
+              <h2 className="text-xl font-bold text-slate-950">Trend of Monthly Disposal of Complaints</h2>
+            </div>
+            <div className="overflow-x-auto no-scrollbar -mx-6 px-6">
+              <table className="w-full min-w-[760px] text-sm text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50/50 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                    <th className="py-4 px-4 font-bold rounded-l-2xl">Sr. No</th>
+                    <th className="py-4 px-4 font-bold">Month</th>
+                    <th className="py-4 px-4 font-bold text-center">Carried Forward</th>
+                    <th className="py-4 px-4 font-bold text-center">Received</th>
+                    <th className="py-4 px-4 font-bold text-center">Resolved</th>
+                    <th className="py-4 px-4 font-bold text-center rounded-r-2xl">Pending</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {monthlyRows.map((row) => (
+                    <tr key={row[0]} className="hover:bg-slate-50/40 transition-colors">
+                      <td className="py-4 px-4 font-semibold text-slate-400">{row[0]}</td>
+                      <td className="py-4 px-4 font-semibold text-slate-900">{row[1]}</td>
+                      <td className="py-4 px-4 text-center">{row[2]}</td>
+                      <td className="py-4 px-4 text-center">{row[3]}</td>
+                      <td className="py-4 px-4 text-center">{row[4]}</td>
+                      <td className="py-4 px-4 text-center">{row[5]}</td>
+                    </tr>
+                  ))}
+                  <tr className="border-t-2 border-slate-200 bg-slate-50/80 font-bold text-slate-950">
+                    <td className="py-4 px-4 rounded-l-2xl" colSpan={2}>Grand Total</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center rounded-r-2xl">0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </motion.section>
+
+          {/* Table 3 */}
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-slate-200/60 bg-white p-6 shadow-sm overflow-hidden"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <TableProperties className="h-5 w-5 text-blue-700" />
+              <h2 className="text-xl font-bold text-slate-950">Trend of Annual Disposal of Complaints</h2>
+            </div>
+            <div className="overflow-x-auto no-scrollbar -mx-6 px-6">
+              <table className="w-full min-w-[760px] text-sm text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50/50 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                    <th className="py-4 px-4 font-bold rounded-l-2xl">Sr. No</th>
+                    <th className="py-4 px-4 font-bold">Year</th>
+                    <th className="py-4 px-4 font-bold text-center">Carried Forward</th>
+                    <th className="py-4 px-4 font-bold text-center">Received</th>
+                    <th className="py-4 px-4 font-bold text-center">Resolved</th>
+                    <th className="py-4 px-4 font-bold text-center rounded-r-2xl">Pending</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {annualRows.map((row) => (
+                    <tr key={row[0]} className="hover:bg-slate-50/40 transition-colors">
+                      <td className="py-4 px-4 font-semibold text-slate-400">{row[0]}</td>
+                      <td className="py-4 px-4 font-semibold text-slate-900">{row[1]}</td>
+                      <td className="py-4 px-4 text-center">{row[2]}</td>
+                      <td className="py-4 px-4 text-center">{row[3]}</td>
+                      <td className="py-4 px-4 text-center">{row[4]}</td>
+                      <td className="py-4 px-4 text-center">{row[5]}</td>
+                    </tr>
+                  ))}
+                  <tr className="border-t-2 border-slate-200 bg-slate-50/80 font-bold text-slate-950">
+                    <td className="py-4 px-4 rounded-l-2xl" colSpan={2}>Grand Total</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center">0</td>
+                    <td className="py-4 px-4 text-center rounded-r-2xl">0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </motion.section>
+
         </div>
+
+        {/* Footer CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45 }}
+          className="mt-10 rounded-3xl border border-slate-200/60 bg-white p-8 shadow-sm"
+        >
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
+                <Award className="h-3.5 w-3.5" />
+                Empirical Excellence
+              </p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Fiduciary Commitment &amp; Trust</h3>
+              <p className="mt-2 max-w-2xl text-slate-700">
+                Sujan Singh Investment Advisory delivers structured, objective wealth management free of commissions.
+              </p>
+            </div>
+            <Link href="/contact" className="inline-block shrink-0">
+              <Button variant="secondary" size="lg">
+                Book a Strategy Session <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </motion.section>
       </div>
-    </section>
+    </div>
   );
 }

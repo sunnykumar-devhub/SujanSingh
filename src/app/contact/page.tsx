@@ -15,6 +15,7 @@ import {
   Phone,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 type FormState = {
   fullName: string;
@@ -48,12 +49,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/80 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-7xl">
+    <div className="min-h-screen bg-slate-50/60 pb-24 pt-28 md:pt-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <Breadcrumb />
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-          <div className="mb-4 text-sm text-slate-600">
-            <Link href="/" className="hover:text-blue-700">Home</Link> / <span>Contact Me</span>
-          </div>
           <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl">Partner with a Trusted Fiduciary</h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700 sm:text-lg">
             Initiate a transparent, commission-free advisory engagement. Reach out via our structural intake framework or establish direct corporate contact.

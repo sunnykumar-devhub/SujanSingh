@@ -10,6 +10,7 @@ import {
   ShieldAlert,
   Sliders,
 } from 'lucide-react';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 type FaqItem = {
   question: string;
@@ -102,8 +103,9 @@ export default function FaqsPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/70 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <div className="min-h-screen bg-slate-50/60 pb-24 pt-28 md:pt-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <Breadcrumb />
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

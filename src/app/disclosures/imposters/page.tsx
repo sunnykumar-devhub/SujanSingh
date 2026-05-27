@@ -14,6 +14,7 @@ import {
   Lock,
   ExternalLink,
 } from 'lucide-react';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 const vectors = [
   {
@@ -104,23 +105,17 @@ const itemVariants = {
 
 export default function ImpostersPage() {
   return (
-    <div className="relative min-h-screen bg-slate-50/60 overflow-hidden pb-24">
+    <div className="relative min-h-screen bg-slate-50/60 overflow-hidden pb-24 pt-28 md:pt-32">
       {/* Dynamic Ambient Background Glows */}
       <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[500px] bg-red-200/20 blur-[120px] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[600px] h-[600px] bg-blue-200/10 blur-[130px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-1/3 w-[500px] h-[500px] bg-indigo-200/15 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       {/* Main Container */}
-      <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         
         {/* Navigation Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-8">
-          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
-          <Link href="/disclosures" className="hover:text-blue-600 transition-colors">Disclosures</Link>
-          <ChevronRight className="h-3 w-3 text-slate-400" />
-          <span className="text-slate-800">Beware of Imposters</span>
-        </nav>
+        <Breadcrumb />
 
         {/* Hero Section */}
         <motion.div 
