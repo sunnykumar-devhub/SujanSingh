@@ -11,6 +11,7 @@ import {
   Sliders,
 } from 'lucide-react';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { containerVariants, itemVariants } from '@/lib/animations';
 
 type FaqItem = {
   question: string;
@@ -27,68 +28,68 @@ type Category = {
 const categories: Category[] = [
   {
     key: 'fees',
-    label: 'Fees & Engagement',
+    label: 'Capital & Compensation',
     icon: CreditCard,
     items: [
-      { question: 'How much do we charge?', answer: 'We charge a fixed fee that is affordable for all clients, based on the Assets Under Advisory (AUA) of each individual. A fixed fee means a flat charge for our advisory services, determined by the total assets advised under our guidance.' },
-      { question: 'What is your annual fee?', answer: 'First year: Rs. 13,000. Renewal: Rs. 8,000/year. The renewal fee baseline increases by Rs. 1,000 every 2 years.' },
-      { question: 'Is the fee per person or per couple?', answer: 'The fee covers the entire family unit (individual or couple), with absolutely no extra charge.' },
-      { question: 'Why is your fee so affordable?', answer: 'We believe unbiased advice should be accessible to everyone. Our flat-fee model ensures absolute transparency and fairness.' },
-      { question: 'Do you offer discounts?', answer: 'No. Our fee structure is already fair, transparent, and completely equal for all clients.' },
-      { question: 'Do I need to renew every year?', answer: 'Yes. Renewal ensures ongoing portfolio reviews, continuous plan updates, and year-round dedicated support.' },
-      { question: 'Can I renew after 2–3 years?', answer: 'Yes, but it will be treated as a fresh onboarding cycle with the standard first-year fee applicable.' },
-      { question: 'Why should I pay for financial advice when there is so much free content online?', answer: 'Price is what you pay. Value is what you get. When you pay for professional, SEBI-registered advice, you invest in personalized guidance, strict accountability, and long-term clarity tailored specifically to your goals, risks, and life stage.' },
-      { question: 'Why should I hire a financial advisor when I can manage my finances on my own?', answer: 'A financial advisor provides expert, unbiased guidance, helping you make better financial choices. They prevent costly mistakes, keep you focused on long-term goals, and save you time, stress, and money by simplifying complex financial options.' },
+      { question: 'How is the advisory fee structured?', answer: 'We operate on a strict, fixed-fee methodology. The fee is determined transparently by your Total Assets Under Advisory (AUA), ensuring our compensation is completely decoupled from product distributions.' },
+      { question: 'What is the precise annual retainer?', answer: 'Initial structural onboarding: Rs. 13,000. Annual ongoing retainer: Rs. 8,000. The baseline retainer adjusts by Rs. 1,000 every two fiscal cycles to account for inflation.' },
+      { question: 'Does the fee apply individually or per household?', answer: 'Our fiduciary mandate covers the entire household structure. There are zero supplementary charges for spouses or immediate dependents.' },
+      { question: 'Why is the fee structure significantly below industry averages?', answer: 'Integrity should not be cost-prohibitive. We engineer a flat-fee architecture to guarantee absolute objectivity, removing the punitive percentage-of-AUM drag commonly charged by wealth managers.' },
+      { question: 'Are there discretionary discounts available?', answer: 'No. To maintain fiduciary equality, our fee schedule is non-negotiable and strictly uniform across all client tiers.' },
+      { question: 'Is annual renewal a requisite?', answer: 'Yes. Wealth preservation requires continuous macro adjustments. The renewal ensures systematic portfolio audits and year-round strategic counsel.' },
+      { question: 'May I pause and renew after multiple years?', answer: 'Yes, however returning after a multi-year lapse requires total structural recalibration, resulting in the application of the initial first-year onboarding fee.' },
+      { question: 'Why compensate an adviser when digital content is abundant?', answer: 'Information is not execution. When you retain a SEBI-registered adviser, you acquire bespoke capital structuring, emotional insulation during drawdowns, and mathematically rigorous accountability.' },
+      { question: 'What prevents me from managing capital autonomously?', answer: 'Autonomy often invites behavioral cognitive biases. We function as your objective structural barrier, preventing impulsive capital destruction and engineering tax-efficient compounding.' },
     ],
   },
   {
     key: 'services',
-    label: 'Services & Process',
+    label: 'Execution & Method',
     icon: Layers,
     items: [
-      { question: 'Do you provide stock recommendations?', answer: 'Yes, based strictly on your long-term goals, risk profile, and SEBI guidelines.' },
-      { question: 'Do you review existing investments?', answer: 'Absolutely. Reviewing, auditing, and optimizing your current baseline portfolio is an integral part of our onboarding process.' },
-      { question: 'Do you advise on real estate and gold?', answer: 'Yes, we offer unbiased, strategic guidance on real estate as part of your financial plan. We help you decide whether to buy, sell, or hold a property, ensuring every decision supports your long-term goals. Please note: We do not participate in real estate transactions, asset matching, or brokerage services.' },
-      { question: 'Do you advise on new or alternative products?', answer: 'Only if they fit your goals, risk profile, and comply with SEBI regulations. We strictly avoid speculative or unregulated products.' },
-      { question: 'Do your services include recommendations on commodities like gold or silver?', answer: 'Yes, we provide strategic, unbiased advice on gold and silver as part of your overall asset allocation. As a SEBI-registered investment adviser, we do not promote specific products or earn any commissions. Our guidance is always in your best interest.' },
-      { question: 'Is my existing investment portfolio reviewed during the financial planning process?', answer: 'Yes, reviewing your current portfolio is an important part of our process. We analyze performance, diversification, and suitability and suggest structural adjustments to ensure your investments align perfectly with your financial goals.' },
-      { question: 'What do I get with the renewal service after the first year?', answer: 'Renewal grants you access to a comprehensive review of your financial roadmap every six months, ongoing email and communication support for all your active financial queries, and timely adjustments based on changes in your goals, income, or shifting market conditions.' },
+      { question: 'Does the mandate include equity recommendations?', answer: 'Yes. We execute direct equity strategies governed strictly by your risk parameters and SEBI compliance guidelines.' },
+      { question: 'Are existing legacy portfolios audited?', answer: 'Absolutely. The foundational step of our engagement is a granular audit of your legacy assets to eliminate systemic inefficiencies.' },
+      { question: 'Is physical real estate analyzed within the framework?', answer: 'Yes. We evaluate real estate purely as an asset class within your broader liquidity matrix. Note: We hold no brokerage licenses and do not execute property transactions.' },
+      { question: 'Are alternative or speculative assets modeled?', answer: 'Only if empirically justified by your risk capacity. We stringently avoid unregulated vehicles and speculative momentum trends.' },
+      { question: 'Does the advisory cover precious metals?', answer: 'We model gold and silver allocations strictly as anti-inflationary volatility buffers within the broader portfolio architecture.' },
+      { question: 'How is the legacy portfolio restructured?', answer: 'We assess cross-asset correlations, expense ratios, and historical volatility, subsequently executing precise tactical shifts to align the portfolio with your target milestones.' },
+      { question: 'What ongoing deliverables are included post-renewal?', answer: 'You retain continuous access to our consultation desk, bi-annual comprehensive roadmap audits, and tactical rebalancing directives when macroeconomic conditions shift.' },
     ],
   },
   {
     key: 'planning',
-    label: 'Planning & Support',
+    label: 'Structural Engineering',
     icon: Sliders,
     items: [
-      { question: 'What all do you cover in the financial plan?', answer: 'We cover complete cash flow structures, insurance engineering, tax optimization, and asset mapping. Refer to our specialized Financial Planning documentation for deep-dive links.' },
-      { question: 'How long will it take to get my plan?', answer: 'Approximately 7–10 working days after receiving all your required documentation and financial details.' },
-      { question: 'Do you offer support after delivering the plan?', answer: 'Yes. You receive 12 full months of comprehensive support, including a half-yearly formal review and unlimited query management.' },
-      { question: 'How often can I reach out?', answer: 'Anytime. There is no artificial limit on questions regarding your financial decisions.' },
-      { question: 'How quickly do you respond?', answer: 'Within 24 hours on active working days, with expedited speeds for high-priority or urgent matters.' },
-      { question: 'What if my life situation changes?', answer: 'We update your strategy as your life and milestones evolve, at no extra cost during your active subscription year.' },
-      { question: 'Where should I start if my finances are currently unstructured or unclear?', answer: 'You are not alone. Financial clarity starts with small, focused steps. We help you organize your finances, prioritize your goals, and create a clear action plan that works for your life. Start where you are. Use what you have. Do what you can.' },
+      { question: 'What comprises the initial financial blueprint?', answer: 'The blueprint includes cash-flow optimization, liability insulation (insurance), tax-efficiency mapping, and long-term asset allocation models.' },
+      { question: 'What is the delivery timeline for the blueprint?', answer: 'Execution requires 7–10 operational days following the receipt of your complete foundational data.' },
+      { question: 'Is consultation available after blueprint delivery?', answer: 'Yes. Your retainer includes 12 months of continuous advisory access to ensure flawless execution of the blueprint.' },
+      { question: 'Are there constraints on inquiry frequency?', answer: 'No. We encourage continuous dialogue to prevent unilateral financial errors.' },
+      { question: 'What are the standard response latencies?', answer: 'Standard inquiries are resolved within 24 operational hours. Critical liquidity or market events receive expedited priority.' },
+      { question: 'How are significant life transitions handled?', answer: 'We dynamically recalibrate your roadmap at zero additional cost during your active retainer year.' },
+      { question: 'How do we proceed if my current finances are chaotic?', answer: 'Chaos is the prerequisite to order. We begin by organizing fragmented data into a cohesive matrix, allowing us to execute a step-by-step structural consolidation.' },
     ],
   },
   {
     key: 'meetings',
-    label: 'Meetings & Communication',
+    label: 'Communication Architecture',
     icon: HelpCircle,
     items: [
-      { question: 'Who will be my advisor?', answer: 'Sujan Singh, SEBI-Registered Investment Adviser (RIA).' },
-      { question: 'Do you provide home or office visits?', answer: 'We mainly serve clients online via secure video platforms. Digital consultations ensure operational efficiency, though structured in-person meetings are available in Delhi/NCR with a prior appointment.' },
-      { question: 'Which languages do you support?', answer: 'Professional fluencies in both English and Hindi.' },
-      { question: 'How will we stay in touch during the engagement?', answer: 'Email, telephone, WhatsApp business channels, and scheduled video conferences optimized to your preference.' },
+      { question: 'Who acts as the primary fiduciary?', answer: 'Sujan Singh, Principal SEBI-Registered Investment Adviser (RIA), personally engineers and audits every portfolio.' },
+      { question: 'Are physical consultations mandatory?', answer: 'No. Our practice is optimized for secure digital infrastructure. However, bespoke in-person consultations are available at our Delhi/NCR headquarters by formal appointment.' },
+      { question: 'Which linguistic modalities are supported?', answer: 'We execute professional advisory in both English and Hindi.' },
+      { question: 'What are the primary communication vectors?', answer: 'We utilize secure email, dedicated telephone lines, business messaging, and encrypted video conferencing.' },
     ],
   },
   {
     key: 'misc',
-    label: 'Miscellaneous FAQs',
+    label: 'Fiduciary Boundaries',
     icon: ShieldAlert,
     items: [
-      { question: 'Who might not be the right fit for your services?', answer: 'Our services may not suit those who want short-term stock tips or active intraday/speculative trading advice, expect us to distribute products like direct insurance or specific mutual funds, prefer commission-based entry points or immediate quick-fix solutions, are unwilling to adhere to a formal structured data-gathering process, or are uncomfortable sharing baseline financial details transparently.' },
-      { question: 'Can I connect with an existing client for feedback?', answer: 'We maintain strict customer confidentiality in compliance with SEBI privacy guidelines and never reveal client identities. However, you are welcome to refer to our verified testimonials and public case studies on our portal.' },
-      { question: 'Do you recommend any specific platforms for investments?', answer: 'As a SEBI-registered advisor, we do not sell specific financial instruments or accept backend commission kickbacks. We suggest neutral, highly secure platforms that support pure, direct, and zero-commission investing.' },
-      { question: 'Is income tax filing included in your services?', answer: 'No, we do not file retrospective income tax returns (ITR). However, we actively guide you with forward-looking tax-saving structures and investment strategies as a core pillar of your financial plan.' },
+      { question: 'Who is incompatible with this advisory model?', answer: 'We decline engagements with individuals seeking speculative stock tips, commission-based insurance sales, intraday momentum trading, or those unwilling to undergo rigorous data transparency.' },
+      { question: 'Can I verify efficacy with existing clients?', answer: 'Under stringent SEBI privacy mandates, we maintain absolute anonymity for our clients. Efficacy can be verified via our public institutional case studies and regulated testimonials.' },
+      { question: 'Do you mandate specific execution platforms?', answer: 'No. We prescribe neutral, zero-commission execution infrastructure but remain completely platform-agnostic.' },
+      { question: 'Does the retainer cover statutory tax filings?', answer: 'No. We engineer forward-looking tax-mitigation strategies but do not act as statutory accountants for retrospective ITR filing.' },
     ],
   },
 ];
@@ -103,89 +104,137 @@ export default function FaqsPage() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50/60 pb-24 pt-28 md:pt-32">
+    <main className="min-h-screen bg-[#FDFBF7] text-slate-900 font-sans selection:bg-blue-100 pb-24 pt-28 md:pt-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <Breadcrumb />
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className="rounded-3xl border border-slate-200/80 bg-white/80 p-8 backdrop-blur"
+        
+        {/* Editorial Hero */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-12 items-end"
         >
-          <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl">Frequently Asked Questions (FAQs)</h1>
-          <p className="mt-4 max-w-3xl text-slate-700 text-lg leading-relaxed">
-            Transparent insights into our fiduciary fee structure, structural advisory process, and communication guidelines.
-          </p>
-        </motion.section>
+          <motion.div variants={itemVariants} className="md:col-span-8 pt-4">
+            <span className="block text-xs uppercase tracking-[0.2em] text-blue-700 font-semibold mb-6">
+              Operational Clarity
+            </span>
+            <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] tracking-tight text-slate-900 mb-6">
+              Authoritative <br />Resolutions.
+            </h1>
+            <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-2xl">
+              Absolute transparency regarding our fiduciary compensation, structural methodology, and execution boundaries.
+            </p>
+          </motion.div>
 
-        <section className="mt-8">
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              const active = activeCategory === category.key;
-              return (
-                <button
-                  key={category.key}
-                  onClick={() => {
-                    setActiveCategory(category.key);
-                    setOpenItem(null);
-                  }}
-                  className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
-                    active
-                      ? 'border-blue-400 bg-blue-50 text-blue-800'
-                      : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {category.label}
-                </button>
-              );
-            })}
-          </div>
-        </section>
+          <motion.div variants={itemVariants} className="md:col-span-4 hidden md:block border-l border-slate-300 pl-8 pb-4">
+             <p className="font-serif text-xl italic text-slate-900 mb-4">
+               &quot;Clarity precedes execution. Ambiguity destroys capital.&quot;
+             </p>
+             <span className="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold">The Fiduciary Mandate</span>
+          </motion.div>
+        </motion.div>
 
-        <section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {currentCategory.items.map((item, index) => {
-            const id = `${currentCategory.key}-${index}`;
-            const isOpen = openItem === id;
-            return (
-              <motion.article
-                key={id}
-                layout
-                className={`rounded-2xl border bg-white/90 p-5 shadow-sm transition ${
-                  isOpen ? 'border-blue-300 shadow-blue-100/60' : 'border-slate-200/80'
-                }`}
-              >
-                <button
-                  onClick={() => setOpenItem(isOpen ? null : id)}
-                  className="flex w-full items-start justify-between gap-4 text-left"
-                >
-                  <h3 className="text-base font-semibold leading-relaxed text-slate-900">{item.question}</h3>
-                  <ChevronDown
-                    className={`mt-0.5 h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-blue-700' : ''
-                    }`}
-                  />
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ type: 'spring', stiffness: 260, damping: 26 }}
-                      className="overflow-hidden"
+        {/* FAQ Layout - Editorial Asymmetry */}
+        <div className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Navigation Tabs */}
+          <motion.aside 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-4 sticky top-32"
+          >
+            <div className="bg-white p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.03)] border border-stone-100">
+              <h3 className="font-serif text-2xl text-slate-900 mb-8">Inquiry Sectors</h3>
+              <div className="flex flex-col gap-2">
+                {categories.map((category) => {
+                  const Icon = category.icon;
+                  const active = activeCategory === category.key;
+                  return (
+                    <button
+                      key={category.key}
+                      onClick={() => {
+                        setActiveCategory(category.key);
+                        setOpenItem(null);
+                      }}
+                      className={`flex items-center gap-4 w-full text-left px-4 py-4 transition-all duration-300 border-l-2 ${
+                        active
+                          ? 'border-blue-700 bg-blue-50/50 text-blue-900'
+                          : 'border-transparent text-slate-500 hover:bg-stone-50 hover:text-slate-900'
+                      }`}
                     >
-                      <p className="pt-4 text-sm leading-relaxed text-slate-700">{item.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.article>
-            );
-          })}
-        </section>
+                      <Icon className={`h-5 w-5 ${active ? 'text-blue-700' : 'text-slate-400'}`} />
+                      <span className="font-semibold tracking-wide text-sm">{category.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.aside>
+
+          {/* Right Column: Accordion Content */}
+          <motion.section 
+            key={activeCategory}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-8"
+          >
+            <div className="mb-10">
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight text-slate-900">{currentCategory.label}</h2>
+              <div className="h-px w-full bg-stone-200 mt-6" />
+            </div>
+
+            <div className="space-y-6">
+              {currentCategory.items.map((item, index) => {
+                const id = `${currentCategory.key}-${index}`;
+                const isOpen = openItem === id;
+                return (
+                  <motion.article
+                    key={id}
+                    layout
+                    className={`transition-all duration-500 border-b border-stone-200 pb-6 ${
+                      isOpen ? '' : 'hover:border-slate-400'
+                    }`}
+                  >
+                    <button
+                      onClick={() => setOpenItem(isOpen ? null : id)}
+                      className="flex w-full items-start justify-between gap-6 text-left group"
+                    >
+                      <h3 className={`font-serif text-xl md:text-2xl leading-snug transition-colors duration-300 ${isOpen ? 'text-blue-900' : 'text-slate-900 group-hover:text-blue-800'}`}>
+                        {item.question}
+                      </h3>
+                      <div className={`mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? 'border-blue-700 bg-blue-700 text-white' : 'border-slate-300 text-slate-400 group-hover:border-blue-400 group-hover:text-blue-600'}`}>
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+                      </div>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-6 pr-8">
+                            <p className="text-base md:text-lg leading-relaxed text-slate-700">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </motion.section>
+
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
