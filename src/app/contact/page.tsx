@@ -49,8 +49,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100/80 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-7xl">
+    <div className="min-h-screen bg-slate-50/60 pb-24 pt-28 md:pt-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <Breadcrumb />
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
           <h1 className="font-serif text-4xl font-bold text-slate-950 sm:text-5xl">Partner with a Trusted Fiduciary</h1>
