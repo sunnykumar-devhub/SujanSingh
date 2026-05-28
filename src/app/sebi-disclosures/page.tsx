@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import DisclosuresContainer from '@/containers/DisclosuresContainer';
+import DisclosuresContainer from '@/containers/disclosuresContainer';
 
 export const metadata: Metadata = {
   title: 'SEBI Disclosures',

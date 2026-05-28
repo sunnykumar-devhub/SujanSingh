@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ShieldAlert, Award, FileCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/button';
 
 const navLinks = [
   { name: 'Home', path: '/' },

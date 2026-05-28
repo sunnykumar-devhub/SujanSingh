@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ServicesContainer from '@/containers/ServicesContainer';
+import ServicesContainer from '@/containers/servicesContainer';
 
 export const metadata: Metadata = {
   title: 'Services | Sujan Singh - Fiduciary Wealth Management',

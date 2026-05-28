@@ -13,8 +13,8 @@ import {
   Lock,
   ExternalLink,
 } from 'lucide-react';
-import PageSectionLayout from '@/components/layout/PageSectionLayout';
-import Button from '@/components/ui/Button';
+import PageSectionLayout from '@/components/layout/pageSectionLayout';
+import Button from '@/components/ui/button';
 import { containerVariants, itemVariants } from '@/lib/animations';
 
 const vectors = [
@@ -92,10 +92,10 @@ export default function ImpostersPage() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(220,38,38,0.15),transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(15,23,42,1),rgba(15,23,42,0.6)_70%)]" />
-          
+
           <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
-              
+
               <motion.div variants={itemVariants} className="md:col-span-6">
                 <span className="block text-xs uppercase tracking-[0.2em] text-red-400 font-semibold mb-4">
                   Fiduciary Covenant
@@ -106,7 +106,7 @@ export default function ImpostersPage() {
                 <p className="text-slate-300 leading-relaxed mb-8">
                   We operate under strict financial guardrails. We never hold client capital. Authorized billing is exclusively conducted via formal invoices sent directly from our verified domain.
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="p-6 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50">
                     <p className="font-bold text-white mb-2">Separate Accounts</p>
@@ -129,17 +129,17 @@ export default function ImpostersPage() {
                 <p className="text-slate-400 leading-relaxed mb-10 text-lg">
                   If you are contacted by any WhatsApp group, Telegram channel, or social profile offering unverified investment plans, pause and reach out immediately to our official desk.
                 </p>
-                
+
                 <div className="bg-white/5 backdrop-blur-md p-8 border border-slate-600/30">
                   <Link href="/contact" passHref>
                     <Button variant="primary" size="lg" className="w-full rounded-none px-8 py-4 font-semibold tracking-wide border border-white bg-white text-slate-900 hover:bg-slate-200 transition-colors">
                       Contact Official Desk <ArrowRight size={16} className="ml-2" />
                     </Button>
                   </Link>
-                  <a 
-                    href="https://www.sebi.gov.in" 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  <a
+                    href="https://www.sebi.gov.in"
+                    target="_blank"
+                    rel="noreferrer"
                     className="mt-6 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors"
                   >
                     Verify SEBI Registry <ExternalLink className="h-3.5 w-3.5" />
@@ -211,8 +211,8 @@ export default function ImpostersPage() {
           {vectors.map((item) => {
             const Icon = item.icon;
             return (
-              <motion.div 
-                key={item.title} 
+              <motion.div
+                key={item.title}
                 variants={itemVariants}
                 className="bg-white p-8 md:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.03)] border border-stone-100 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 group"
               >
