@@ -19,7 +19,7 @@ import {
   Users,
   CheckCircle2,
 } from 'lucide-react';
-import PageSectionLayout from '@/components/layout/PageSectionLayout';
+import PageSectionLayout from '@/components/layout/pageSectionLayout';
 import { containerVariants, itemVariants } from '@/lib/animations';
 
 interface Pillar {

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Breadcrumb from '@/components/ui/Breadcrumb';
+import Breadcrumb from '@/components/ui/breadcrumb';
 
 interface PageSectionLayoutProps {
   children: React.ReactNode;

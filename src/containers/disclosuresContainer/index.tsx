@@ -19,7 +19,7 @@ import {
   AlertCircle,
   ExternalLink,
 } from 'lucide-react';
-import PageSectionLayout from '@/components/layout/PageSectionLayout';
+import PageSectionLayout from '@/components/layout/pageSectionLayout';
 import { containerVariants, itemVariants } from '@/lib/animations';
 
 interface DisclosureItem {
@@ -107,7 +107,7 @@ export default function DisclosuresContainer() {
                   </p>
 
                   <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-                    <Link href="/complaints" passHref>
+                    <Link href="/disclosures/complaints" passHref>
                       <button className="inline-flex items-center gap-3 bg-white text-slate-900 text-xs tracking-wider uppercase font-bold px-6 py-3.5 hover:bg-slate-200 transition-colors duration-200">
                         View Complete Grievance Status
                         <ArrowRight className="ml-2 h-4 w-4" />
